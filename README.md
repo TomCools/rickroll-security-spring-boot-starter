@@ -23,8 +23,8 @@ rickroll.paths=/admin,/tomcools
 ```
 
 
-## Contributions
-Thank you to:
-- Liam Hammet for the original Tweet that started all this madness.
-- Andy Wilkinson to suggest the idea for this kind of filter to Spring.
-- Rick Astley for never giving me up, nor letting me down. <3
+## Special Thanks
+- [Liam Hammet for the original Tweet that started all this madness.](https://twitter.com/LiamHammett/status/1260984553570570240)
+- [Andy Wilkinson to suggest the idea for this kind of filter to Spring.](https://twitter.com/ankinson/status/1261724332553900034)
+- [My amazing wife](https://twitter.com/HenderickxSilke) for putting up with me and all my sillyness. <3
+- [Rick Astley for never giving me up, nor letting me down.](https://www.youtube.com/watch?v=dQw4w9WgXcQ)
