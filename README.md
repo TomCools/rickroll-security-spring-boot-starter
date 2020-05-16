@@ -2,7 +2,7 @@
 
 This starter will reroute configured paths to a video of Rick Astley - Never Gonna Give You Up.
 
-![Demo](https://github.com/TomCools/rickroll-security-spring-boot-starter/blob/master/static/rickroll-demo.gif)
+![Demo](https://github.com/TomCools/rickroll-security-spring-boot-starter/blob/master/docs/rickroll-demo.gif)
 
 ## Configuration
 
