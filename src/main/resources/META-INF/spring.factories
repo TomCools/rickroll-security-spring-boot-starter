@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  be.tomcools.rickrollsecurity.RickRollConfiguration,\
+  be.tomcools.rickrollsecurity.RickRollConfigurationProperties
