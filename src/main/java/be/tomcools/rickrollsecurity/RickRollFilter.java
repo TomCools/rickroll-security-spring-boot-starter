@@ -24,7 +24,7 @@ public class RickRollFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String requestUri = request.getRequestURI();
         for (String path : pathsToRedirect) {
-            if(requestUri.contains(path)) {
+            if(requestUri.equals(path)) {
                 response.sendRedirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
                 return;
             }
