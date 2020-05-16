@@ -25,9 +25,13 @@
         <developer>
             <name>Tom Cools</name>
             <email>tom.cools@live.be</email>
-            <url>http://tomcools.be</url>
+            <url>https://www.tomcools.be</url>
         </developer>
     </developers>
+    <organization>
+        <name>Tom Cools</name>
+        <url>https://www.tomcools.be</url>
+    </organization>
     <scm>
         <url>https://github.com/TomCools/rickroll-security-spring-boot-starter</url>
         <connection>scm:git:https://github.com/TomCools/rickroll-security-spring-boot-starter.git</connection>
