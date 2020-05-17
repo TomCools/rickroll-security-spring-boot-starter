@@ -1,6 +1,6 @@
 # Rickroll Security Spring Boot Starter
 
-This starter will reroute configured paths to a video of Rick Astley - Never Gonna Give You Up.
+This starter will reroute configured paths and/or file extensions to a video of Rick Astley - Never Gonna Give You Up.
 
 ![Demo](https://github.com/TomCools/rickroll-security-spring-boot-starter/blob/master/docs/rickroll-demo.gif)
 
@@ -22,6 +22,20 @@ Paths you want to redirect can be configured in your Spring Application Properti
 rickroll.paths=/admin,/tomcools
 rickroll.file-extensions=php
 ```
+
+## FAQ
+
+### If I have a RestController mapped to /admin and I also add /add in the rickroll.paths. What will happen?
+
+Why don't you try that for yourself? <insert evil laugh>
+
+The implementation is based on a Filter.class. So anything that happens after the filter will be replaced by some nice music.
+In case of a RestController, since this comes after the Filter...you will be rickroll'd.
+
+### Why did you hardcode the Rickroll URL?
+Let's face it. That video will only be removed from the internet in case of an apocalyptic event. In which case, this project won't matter much either.
+
+More serious note: If the request comes to redirect to other URLs, I'll consider making it configurable.
 
 
 ## Special Thanks
