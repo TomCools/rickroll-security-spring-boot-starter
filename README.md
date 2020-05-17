@@ -25,7 +25,7 @@ rickroll.file-extensions=php
 
 ## FAQ
 
-### If I have a RestController mapped to /admin and I also add /add in the rickroll.paths. What will happen?
+### If I have a RestController mapped to /admin and I also add /admin in the rickroll.paths. What will happen?
 
 Why don't you try that for yourself? #evillaugh
 
