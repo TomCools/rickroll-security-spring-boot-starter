@@ -10,6 +10,18 @@ import java.util.List;
 @ConfigurationProperties(prefix = "rickroll")
 public class RickRollConfigurationProperties {
     private List<String> paths;
+    private List<String> fileExtensions;
+
+    public List<String> getFileExtensions() {
+        if(fileExtensions == null) {
+            return new ArrayList<>();
+        }
+        return fileExtensions;
+    }
+
+    public void setFileExtensions(List<String> fileExtensions) {
+        this.fileExtensions = fileExtensions;
+    }
 
     public List<String> getPaths() {
         if(paths == null) {

@@ -8,14 +8,14 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 public class RickRollFilter implements Filter {
 
-    private List<String> pathsToRedirect;
+    private static final String RICKROLL_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+    private final RickRollConfigurationProperties properties;
 
-    public RickRollFilter(List<String> pathsToRedirect) {
-        this.pathsToRedirect = pathsToRedirect;
+    public RickRollFilter(RickRollConfigurationProperties properties) {
+        this.properties = properties;
     }
 
     @Override
@@ -23,12 +23,22 @@ public class RickRollFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String requestUri = request.getRequestURI();
-        for (String path : pathsToRedirect) {
-            if(requestUri.equals(path)) {
-                response.sendRedirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ");
+        for (String path : properties.getPaths()) {
+            if (requestUri.equals(path)) {
+                rickroll(response);
+                return;
+            }
+        }
+        for (String path : properties.getFileExtensions()) {
+            if (requestUri.endsWith(path)) {
+                rickroll(response);
                 return;
             }
         }
         filterChain.doFilter(servletRequest, servletResponse);
+    }
+
+    private void rickroll(HttpServletResponse response) throws IOException {
+        response.sendRedirect(RICKROLL_URL);
     }
 }
