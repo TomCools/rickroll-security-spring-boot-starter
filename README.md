@@ -12,7 +12,7 @@ Add the following dependency to your POM.
 <dependency>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -20,6 +20,7 @@ Paths you want to redirect can be configured in your Spring Application Properti
 
 ```
 rickroll.paths=/admin,/tomcools
+rickroll.file-extensions=php
 ```
 
 
