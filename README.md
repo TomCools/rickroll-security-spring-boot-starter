@@ -27,7 +27,7 @@ rickroll.file-extensions=php
 
 ### If I have a RestController mapped to /admin and I also add /add in the rickroll.paths. What will happen?
 
-Why don't you try that for yourself? <insert evil laugh>
+Why don't you try that for yourself? #evillaugh
 
 The implementation is based on a Filter.class. So anything that happens after the filter will be replaced by some nice music.
 In case of a RestController, since this comes after the Filter...you will be rickroll'd.
