@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.Filter;
-import java.util.List;
 
 @Configuration
 @ConditionalOnClass(Filter.class)
@@ -21,9 +20,9 @@ public class RickRollConfiguration {
 
     @Bean
     public RickRollFilter filter() {
-        List<String> paths = properties.getPaths();
-        LOGGER.info("Rickrolling paths: {}", String.join(", ", paths));
-        return new RickRollFilter(paths);
+        LOGGER.info("Rickrolling paths: {}", String.join(", ", properties.getPaths()));
+        LOGGER.info("Rickrolling extensions: {}", String.join(", ", properties.getFileExtensions()));
+        return new RickRollFilter(properties);
     }
 
 }

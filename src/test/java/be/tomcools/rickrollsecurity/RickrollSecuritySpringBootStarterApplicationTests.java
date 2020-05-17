@@ -27,8 +27,14 @@ class RickrollSecuritySpringBootStarterApplicationTests {
     TestRestTemplate template;
 
     @Test
-    void testRedirect() {
+    void testRedirectForPath() {
         ResponseEntity<String> forEntity = template.getForEntity("/admin", String.class);
+        assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
+    }
+
+    @Test
+    void testRedirectForFileExtension() {
+        ResponseEntity<String> forEntity = template.getForEntity("/random.php", String.class);
         assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
     }
 
