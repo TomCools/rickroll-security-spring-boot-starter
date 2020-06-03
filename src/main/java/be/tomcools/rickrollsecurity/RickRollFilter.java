@@ -11,7 +11,6 @@ import java.io.IOException;
 
 public class RickRollFilter implements Filter {
 
-    private static final String RICKROLL_URL = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
     private final RickRollConfigurationProperties properties;
 
     public RickRollFilter(RickRollConfigurationProperties properties) {
@@ -39,6 +38,6 @@ public class RickRollFilter implements Filter {
     }
 
     private void rickroll(HttpServletResponse response) throws IOException {
-        response.sendRedirect(RICKROLL_URL);
+        response.sendRedirect(properties.getVersionUrl());
     }
 }
