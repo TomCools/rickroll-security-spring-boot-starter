@@ -27,7 +27,7 @@ Add the following dependency to your POM.
 <dependency>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
@@ -37,6 +37,16 @@ Paths you want to redirect can be configured in your Spring Application Properti
 rickroll.paths=/admin,/tomcools
 rickroll.file-extensions=php
 ```
+
+As of version 1.2.0, we are adding alternative RickRoll videos.
+These can be selected by setting the *rickroll.version=**VERSION_NAME*** property.
+
+Available versions:
+
+| VERSION_NAME  | URL                                          |
+|---------------|----------------------------------------------|
+| original      | https://www.youtube.com/watch?v=dQw4w9WgXcQ  |
+| scary-pockets | https://www.youtube.com/watch?v=sQnoZUR6fvY" |
 
 ## FAQ
 
@@ -49,8 +59,7 @@ In case of a RestController, since this comes after the Filter...you will be ric
 
 ### Why did you hardcode the Rickroll URL?
 Let's face it. That video will only be removed from the internet in case of an apocalyptic event. In which case, this project won't matter much either.
-
-More serious note: If the request comes to redirect to other URLs, I'll consider making it configurable.
+We are allowing PR's to add alternative URLs. These will be validated by us before being added to available options.
 
 
 ## Special Thanks
