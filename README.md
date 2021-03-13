@@ -27,14 +27,14 @@ Add the following dependency to your POM.
 <dependency>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
 Paths you want to redirect can be configured in your Spring Application Properties:
 
 ```
-rickroll.paths=/admin,/tomcools
+rickroll.paths=/admin,/tomcools,/**/bye-bye/*
 rickroll.file-extensions=php
 ```
 
@@ -46,7 +46,10 @@ Available versions:
 | VERSION_NAME  | URL                                          |
 |---------------|----------------------------------------------|
 | original      | https://www.youtube.com/watch?v=dQw4w9WgXcQ  |
-| scary-pockets | https://www.youtube.com/watch?v=sQnoZUR6fvY" |
+| scary-pockets | https://www.youtube.com/watch?v=sQnoZUR6fvY |
+
+Since version 1.3.0, it's possible to use patterns as path configurations. Patterns give more flexibility and help to reduce the total amount of configured paths.  
+Request URIs will be checked on a match using an [`AntPathMatcher`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/AntPathMatcher.html).
 
 ## FAQ
 
@@ -54,12 +57,12 @@ Available versions:
 
 Why don't you try that for yourself? #evillaugh
 
-The implementation is based on a Filter.class. So anything that happens after the filter will be replaced by some nice music.
+The implementation is based on a `Filter.class`. So anything that happens after the filter will be replaced by some nice music.
 In case of a RestController, since this comes after the Filter...you will be rickroll'd.
 
 ### Why did you hardcode the Rickroll URL?
 Let's face it. That video will only be removed from the internet in case of an apocalyptic event. In which case, this project won't matter much either.
-We are allowing PR's to add alternative URLs. These will be validated by us before being added to available options.
+We are allowing PRs to add alternative URLs. These will be validated by us before being added to available options.
 
 
 ## Special Thanks
