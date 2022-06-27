@@ -4,6 +4,12 @@ This starter will reroute configured paths and/or file extensions to a video of 
 
 ![Demo](https://github.com/TomCools/rickroll-security-spring-boot-starter/blob/main/docs/rickroll-demo.gif)
 
+## Contribute
+
+You can use the following Gitpod to get started on contributing really quickly ;)
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/TomCools/rickroll-security-spring-boot-starter)
+
 ## Example Use Case
 
 Noob hackers often try to access secure pages. The Spring Actuator endpoints are an example where a hacker could do some serious damage. You could put a password on it and you definatly should...but then they don't learn anything. So what you can do is move the actual actuator paths and replace them with Rick Astley! That'll make them think twice!
