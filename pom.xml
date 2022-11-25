@@ -10,7 +10,7 @@
     </parent>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>3.0.0</version>
+    <version>3.0.1-SNAPSHOT</version>
     <name>rickroll-security-spring-boot-starter</name>
     <description>Redirects common security endpoints to Rick Astley - Never Gonna Give You Up</description>
 
