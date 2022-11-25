@@ -5,12 +5,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0-RC2</version>
+        <version>3.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>3.0.0-RC1</version>
+    <version>3.0.0</version>
     <name>rickroll-security-spring-boot-starter</name>
     <description>Redirects common security endpoints to Rick Astley - Never Gonna Give You Up</description>
 
@@ -160,7 +160,7 @@
                                 </signing>
                                 <release>
                                     <github>
-                                        <enabled>false</enabled>
+                                        <enabled>true</enabled>
                                         <owner>TomCools</owner>
                                         <host>github.com</host>
                                         <apiEndpoint>https://api.github.com</apiEndpoint>
@@ -169,7 +169,7 @@
                                 <announce>
                                     <active>ALWAYS</active>
                                     <mastodon>
-                                        <active>NEVER</active>
+                                        <active>ALWAYS</active>
                                         <host>https://mastodon.social/</host>
                                         <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
                                     </mastodon>
@@ -178,7 +178,7 @@
                                     <maven>
                                         <nexus2>
                                             <maven-central>
-                                                <active>NEVER</active>
+                                                <active>ALWAYS</active>
                                                 <url>https://oss.sonatype.org/service/local</url>
                                                 <applyMavenCentralRules>true</applyMavenCentralRules>
                                                 <closeRepository>true</closeRepository>
