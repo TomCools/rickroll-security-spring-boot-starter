@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.0</version>
+        <version>3.0.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>be.tomcools</groupId>
@@ -105,7 +105,7 @@
                 <plugin>
                     <groupId>org.jreleaser</groupId>
                     <artifactId>jreleaser-maven-plugin</artifactId>
-                    <version>1.4.0-SNAPSHOT</version>
+                    <version>1.4.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -152,7 +152,7 @@
                         <configuration>
                             <jreleaser>
                                 <project>
-                                    <copyright>2022 Tom Cools</copyright>
+                                    <copyright>2023 Tom Cools</copyright>
                                 </project>
                                 <signing>
                                     <active>ALWAYS</active>
