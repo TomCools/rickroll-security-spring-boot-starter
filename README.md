@@ -53,6 +53,7 @@ Available versions:
 |---------------|----------------------------------------------|
 | original      | https://www.youtube.com/watch?v=dQw4w9WgXcQ  |
 | scary-pockets | https://www.youtube.com/watch?v=sQnoZUR6fvY |
+| metal-caleb   | https://www.youtube.com/watch?v=MXMf_ni0Msk |
 
 Since version 1.3.0, it's possible to use patterns as path configurations. Patterns give more flexibility and help to reduce the total amount of configured paths.  
 Request URIs will be checked on a match using an [`AntPathMatcher`](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/util/AntPathMatcher.html).
