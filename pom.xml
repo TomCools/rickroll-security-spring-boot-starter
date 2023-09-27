@@ -10,7 +10,7 @@
     </parent>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>3.0.1-SNAPSHOT</version>
+    <version>3.1.0</version>
     <name>rickroll-security-spring-boot-starter</name>
     <description>Redirects common security endpoints to Rick Astley - Never Gonna Give You Up</description>
 
@@ -109,12 +109,74 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.jreleaser</groupId>
+                <artifactId>jreleaser-maven-plugin</artifactId>
+                <configuration>
+                    <jreleaser>
+                        <project>
+                            <copyright>2023 Tom Cools</copyright>
+                        </project>
+                        <signing>
+                            <active>ALWAYS</active>
+                            <armored>true</armored>
+                        </signing>
+                        <release>
+                            <github>
+                                <enabled>true</enabled>
+                                <owner>TomCools</owner>
+                                <host>github.com</host>
+                                <apiEndpoint>https://api.github.com</apiEndpoint>
+                                <changelog>
+                                    <formatted>ALWAYS</formatted>
+                                    <preset>conventional-commits</preset>
+                                    <hide>
+                                        <uncategorized>true</uncategorized>
+                                    </hide>
+                                </changelog>
+                            </github>
+                        </release>
+                        <announce>
+                            <active>ALWAYS</active>
+                            <mastodon>
+                                <active>ALWAYS</active>
+                                <host>https://mastodon.social/</host>
+                                <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
+                            </mastodon>
+                        </announce>
+                        <deploy>
+                            <maven>
+                                <pomchecker>
+                                    <version>1.9.0</version>
+                                </pomchecker>
+                                <nexus2>
+                                    <maven-central>
+                                        <active>NEVER</active>
+                                        <url>https://oss.sonatype.org/service/local</url>
+                                        <snapshotUrl>https://s01.oss.sonatype.org/content/repositories/snapshots/</snapshotUrl>
+                                        <applyMavenCentralRules>true</applyMavenCentralRules>
+                                        <closeRepository>true</closeRepository>
+                                        <releaseRepository>true</releaseRepository>
+                                        <stagingRepositories>target/staging-deploy</stagingRepositories>
+                                    </maven-central>
+                                </nexus2>
+                            </maven>
+                        </deploy>
+                    </jreleaser>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
     <profiles>
         <profile>
             <id>publication</id>
+            <properties>
+                <altDeploymentRepository>local::file:./target/staging-deploy</altDeploymentRepository>
+            </properties>
             <build>
+                <defaultGoal>deploy</defaultGoal>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -146,74 +208,8 @@
                             </execution>
                         </executions>
                     </plugin>
-                    <plugin>
-                        <groupId>org.jreleaser</groupId>
-                        <artifactId>jreleaser-maven-plugin</artifactId>
-                        <configuration>
-                            <jreleaser>
-                                <project>
-                                    <copyright>2023 Tom Cools</copyright>
-                                </project>
-                                <signing>
-                                    <active>ALWAYS</active>
-                                    <armored>true</armored>
-                                </signing>
-                                <release>
-                                    <github>
-                                        <enabled>true</enabled>
-                                        <owner>TomCools</owner>
-                                        <host>github.com</host>
-                                        <apiEndpoint>https://api.github.com</apiEndpoint>
-                                    </github>
-                                </release>
-                                <announce>
-                                    <active>ALWAYS</active>
-                                    <mastodon>
-                                        <active>ALWAYS</active>
-                                        <host>https://mastodon.social/</host>
-                                        <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
-                                    </mastodon>
-                                </announce>
-                                <deploy>
-                                    <maven>
-                                        <nexus2>
-                                            <maven-central>
-                                                <active>ALWAYS</active>
-                                                <url>https://oss.sonatype.org/service/local</url>
-                                                <applyMavenCentralRules>true</applyMavenCentralRules>
-                                                <closeRepository>true</closeRepository>
-                                                <releaseRepository>true</releaseRepository>
-                                                <stagingRepositories>target/staging-deploy</stagingRepositories>
-                                            </maven-central>
-                                        </nexus2>
-                                    </maven>
-                                </deploy>
-                            </jreleaser>
-                        </configuration>
-                    </plugin>
                 </plugins>
             </build>
         </profile>
     </profiles>
-
-    <repositories>
-        <repository>
-            <id>central</id>
-            <name>Central Repository</name>
-            <url>https://repo.maven.apache.org/maven2</url>
-            <layout>default</layout>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
 </project>

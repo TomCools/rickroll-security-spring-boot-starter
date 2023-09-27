@@ -1,8 +1,9 @@
 # How to publish something to Maven Central.
 
-https://itnext.io/publishing-artifact-to-maven-central-b160634e5268
+Using JReleaser: https://jreleaser.org/guide/latest/examples/maven/index.html
 
+- Set version: `mvn versions:set`
+- Stage artifacts: `mvn -Ppublication`
+- (Dry) Run JReleaser: `mvn -Djreleaser.dry.run=true jreleaser:full-release`
 
-- Build release artifacts: clean install -Prelease
-- Check GPG signature: gpg --verify target/*.pom.asc
-- Deploy on Sonatype: clean deploy -Prelease
+Afterwards, set next snapshot version.
