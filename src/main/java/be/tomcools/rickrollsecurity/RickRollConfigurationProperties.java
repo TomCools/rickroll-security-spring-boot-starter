@@ -35,11 +35,11 @@ public class RickRollConfigurationProperties {
     public void setPaths(List<String> paths) {
         this.paths = paths;
     }
-    
+
     void setVersion(Version version) {
         this.version = version;
     }
-    
+
     public String getVersionUrl() {
         return version.url;
     }
@@ -47,6 +47,7 @@ public class RickRollConfigurationProperties {
     enum Version {
 
         ORIGINAL("https://www.youtube.com/watch?v=dQw4w9WgXcQ"),
+        METAL_CALEB("https://www.youtube.com/watch?v=MXMf_ni0Msk"),
         SCARY_POCKETS("https://www.youtube.com/watch?v=sQnoZUR6fvY");
 
         final String url;
