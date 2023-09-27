@@ -33,7 +33,7 @@ Add the following dependency to your POM.
 <dependency>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>2.6.7</version>
+    <version>VERSION_HERE</version>
 </dependency>
 ```
 
