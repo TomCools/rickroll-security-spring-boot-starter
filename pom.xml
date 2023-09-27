@@ -10,7 +10,7 @@
     </parent>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>3.1.0</version>
+    <version>3.1.1-SNAPSHOT</version>
     <name>rickroll-security-spring-boot-starter</name>
     <description>Redirects common security endpoints to Rick Astley - Never Gonna Give You Up</description>
 
@@ -152,7 +152,7 @@
                                 </pomchecker>
                                 <nexus2>
                                     <maven-central>
-                                        <active>NEVER</active>
+                                        <active>ALWAYS</active>
                                         <url>https://oss.sonatype.org/service/local</url>
                                         <snapshotUrl>https://s01.oss.sonatype.org/content/repositories/snapshots/</snapshotUrl>
                                         <applyMavenCentralRules>true</applyMavenCentralRules>
