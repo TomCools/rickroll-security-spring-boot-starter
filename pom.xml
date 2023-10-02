@@ -90,7 +90,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.10.1</version>
+                    <version>3.11.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -144,6 +144,14 @@
                                 <host>https://mastodon.social/</host>
                                 <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
                             </mastodon>
+                            <bluesky>
+                                <active>ALWAYS</active>
+                                <host>https://bsky.social</host>
+                                <handle>tcoolsit.bsky.social</handle>
+                                <statuses>
+                                    <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
+                                </statuses>
+                            </bluesky>
                         </announce>
                         <deploy>
                             <maven>
