@@ -1,5 +1,6 @@
 package be.tomcools.rickrollsecurity;
 
+import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
 
@@ -12,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+@Component
 public class RickRollFilter implements Filter {
     private static final PathMatcher PATH_MATCHER = new AntPathMatcher();
 
