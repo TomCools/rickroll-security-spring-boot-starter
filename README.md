@@ -6,9 +6,7 @@ This starter will reroute configured paths and/or file extensions to a video of 
 
 ## Contribute
 
-You can use the following Gitpod to get started on contributing really quickly ;)
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/TomCools/rickroll-security-spring-boot-starter)
+Just make a pull request ;) There is not much in this repo.
 
 ## Example Use Case
 
