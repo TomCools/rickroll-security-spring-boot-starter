@@ -10,7 +10,7 @@
     </parent>
     <groupId>be.tomcools</groupId>
     <artifactId>rickroll-security-spring-boot-starter</artifactId>
-    <version>3.1.1-SNAPSHOT</version>
+    <version>3.2.0-SNAPSHOT</version>
     <name>rickroll-security-spring-boot-starter</name>
     <description>Redirects common security endpoints to Rick Astley - Never Gonna Give You Up</description>
 
@@ -51,7 +51,8 @@
     </distributionManagement>
 
     <properties>
-        <java.version>21</java.version>
+        <java.version>17</java.version>
+        <jreleaser.dry.run>true</jreleaser.dry.run>
     </properties>
 
     <dependencies>
@@ -105,7 +106,7 @@
                 <plugin>
                     <groupId>org.jreleaser</groupId>
                     <artifactId>jreleaser-maven-plugin</artifactId>
-                    <version>1.8.0</version>
+                    <version>1.12.0</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -116,7 +117,7 @@
                 <configuration>
                     <jreleaser>
                         <project>
-                            <copyright>2023 Tom Cools</copyright>
+                            <copyright>2024 Tom Cools</copyright>
                         </project>
                         <signing>
                             <active>ALWAYS</active>
@@ -142,14 +143,14 @@
                             <mastodon>
                                 <active>ALWAYS</active>
                                 <host>https://mastodon.social/</host>
-                                <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
+                                <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released! {{releaseNotesUrl}}</status>
                             </mastodon>
                             <bluesky>
                                 <active>ALWAYS</active>
                                 <host>https://bsky.social</host>
                                 <handle>tcoolsit.bsky.social</handle>
                                 <statuses>
-                                    <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
+                                    <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released! {{releaseNotesUrl}}</status>
                                 </statuses>
                             </bluesky>
                         </announce>
@@ -171,6 +172,31 @@
                                 </nexus2>
                             </maven>
                         </deploy>
+                        <extensions>
+                            <ascii-art-steps>
+                                <enabled>true</enabled>
+                                <!--
+                                  Maven GAV coordinates used to resolve JARs.
+                                  Mutually exclusive with `directory`.
+                                <gav>com.acme:my-jreleaser-extension:1.2.3</gav>          -->
+                                <directory>D:\</directory>
+
+                                <providers>
+                                    <provider>
+                                        <!--
+                                          Fully qualified class name.
+
+                                         -->
+                                        <type>be.tomcools.jreleaser.AsciiArtSteps</type>
+                                        <!-- Additional properties required during provider initialization.
+                                        <properties>
+                                            <key>value</key>
+                                        </properties>
+                                        -->
+                                    </provider>
+                                </providers>
+                            </ascii-art-steps>
+                        </extensions>
                     </jreleaser>
                 </configuration>
             </plugin>
