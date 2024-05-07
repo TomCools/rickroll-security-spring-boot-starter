@@ -123,6 +123,7 @@
                             <active>ALWAYS</active>
                             <armored>true</armored>
                         </signing>
+
                         <release>
                             <github>
                                 <enabled>true</enabled>
@@ -138,26 +139,28 @@
                                 </changelog>
                             </github>
                         </release>
+
                         <announce>
                             <active>ALWAYS</active>
                             <mastodon>
                                 <active>ALWAYS</active>
                                 <host>https://mastodon.social/</host>
-                                <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released! {{releaseNotesUrl}}</status>
+                                <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
                             </mastodon>
                             <bluesky>
                                 <active>ALWAYS</active>
                                 <host>https://bsky.social</host>
                                 <handle>tcoolsit.bsky.social</handle>
                                 <statuses>
-                                    <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released! {{releaseNotesUrl}}</status>
+                                    <status>🚀 {{projectNameCapitalized}} {{projectVersion}} has been released!</status>
                                 </statuses>
                             </bluesky>
                         </announce>
+
                         <deploy>
                             <maven>
                                 <pomchecker>
-                                    <version>1.9.0</version>
+                                    <version>1.11.0</version>
                                 </pomchecker>
                                 <nexus2>
                                     <maven-central>
@@ -172,31 +175,20 @@
                                 </nexus2>
                             </maven>
                         </deploy>
+
                         <extensions>
                             <ascii-art-steps>
-                                <enabled>true</enabled>
-                                <!--
-                                  Maven GAV coordinates used to resolve JARs.
-                                  Mutually exclusive with `directory`.
-                                <gav>com.acme:my-jreleaser-extension:1.2.3</gav>          -->
-                                <directory>D:\</directory>
-
+                                <enabled>false</enabled>
+                                <!--<directory>D:\</directory>-->
+                                <gav>be.tomcools:jreleaser-demo-extension:1.0.0</gav>
                                 <providers>
                                     <provider>
-                                        <!--
-                                          Fully qualified class name.
-
-                                         -->
                                         <type>be.tomcools.jreleaser.AsciiArtSteps</type>
-                                        <!-- Additional properties required during provider initialization.
-                                        <properties>
-                                            <key>value</key>
-                                        </properties>
-                                        -->
                                     </provider>
                                 </providers>
                             </ascii-art-steps>
                         </extensions>
+
                     </jreleaser>
                 </configuration>
             </plugin>
