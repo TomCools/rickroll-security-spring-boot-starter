@@ -1,6 +1,8 @@
 package be.tomcools.rickrollsecurity;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -20,32 +22,44 @@ class RickrollSecuritySpringBootStarterApplicationTests {
 
     @Test
     void testRedirectForPath() {
-        ResponseEntity<String> forEntity = template.getForEntity("/admin", String.class);
-        assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
+        test("/test-path", true);
     }
 
     @Test
-    void testRedirectForPathMatch() {
-        ResponseEntity<String> forEntity = template.getForEntity("/admin/rick-roll", String.class);
-        assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
+    void testRedirectForSecuredPath() {
+        test("/test-path-secured", true);
+    }
+
+    @Test
+    void testRedirectForPathSubdirectoryMatch() {
+        test("/test-path/rick-roll", true);
     }
 
     @Test
     void testRedirectForSubPathNoMatch() {
-        ResponseEntity<String> forEntity = template.getForEntity("/rick-roll/admin", String.class);
-        assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        test("/rick-roll/test-path", false);
     }
 
     @Test
     void testRedirectForFileExtension() {
-        ResponseEntity<String> forEntity = template.getForEntity("/random.php", String.class);
-        assertThat(forEntity.getStatusCode()).isEqualTo(HttpStatus.FOUND);
+        test("/extension.php", true);
+    }
+
+    @Test
+    void testRedirectForFileExtensionSecuredPath() {
+        test("/secured/extension.php", true);
     }
 
     @Test
     void testNonSetupNotFound() {
-        ResponseEntity<String> response = template.exchange("/NOTHING", HttpMethod.GET, null, String.class);
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
+        test("/UNKNOWN_PATH", false);
     }
 
+    private void test(String path, boolean rickRolled) {
+        ResponseEntity<String> forEntity = template.getForEntity(path, String.class);
+
+        assertThat(forEntity.getStatusCode().equals(HttpStatus.FOUND))
+                .withFailMessage("Path %s resulted in unexpected result %s".formatted(path, forEntity))
+                .isEqualTo(rickRolled);
+    }
 }
